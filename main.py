@@ -1,0 +1,10 @@
+import jenkins, github, codeclimate, manage_csv, slack, anomalydetection
+jen = jenkins.Jenkins()
+g = github.GitHub()
+cc = codeclimate.Codeclimate()
+sl = slack.Slack()
+csv = manage_csv.Manage_csv(g, cc, jen)
+ad = anomalydetection.AnomalyDetection(jen, csv, 1)
+#csv.create_csv()
+dataset = csv.read_csv()
+ad.executeAD(dataset['dataset'])
