@@ -53,9 +53,9 @@ class Jenkins:
 
     def proceedProduction(self):
         jenkinsServer = self.jenkinsServer
-        project = 'SpaceViewer_Production'
-        input_id = 'productionJob'
-        buildToken = 'startJob'
+        project = '' #insert the project name from jenkins
+        input_id = '' #insert the job id declared in jenkinsfile
+        buildToken = '' #insert the build token to start the job
         r = requests.get(
             'http://' + jenkinsServer + '/job/' + project + '/wfapi/runs')
         c = json.loads(r.content)
